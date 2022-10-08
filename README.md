@@ -1,5 +1,7 @@
 # http-streaming
 
+![demo](output.gif)
+
 ## Usage
 
 ```sh
