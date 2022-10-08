@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>HTTP Streaming</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: monospace;
+      }
+
+      body {
+        max-width: 1024px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem;
+        background-color: #111827;
+        color: #ffffff;
+      }
+
+      #video-container {
+        border-radius: 18px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 1rem;
+      }
+
+      video {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTTP Streaming</h1>
+    <p>This video is 63.6MB and is being streamed instead of downloaded.</p>
+
+    <div id="video-container">
+      <video src="/video" muted="muted" controls autoplay />
+    </div>
+  </body>
+</html>
