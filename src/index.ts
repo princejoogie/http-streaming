@@ -3,6 +3,10 @@ import fs from "fs";
 import path from "path";
 
 const PORT = 4000;
+//
+const videoName = "video.mp4";
+const videoPath = path.join(__dirname, videoName);
+const videoSize = fs.statSync(videoPath).size;
 
 const main = async () => {
   const app = express();
@@ -17,14 +21,8 @@ const main = async () => {
       return res.status(400).send("Range header missing");
     }
 
-    // get video stats (about 61MB)
-    const videoName = "video.mp4";
-    const videoPath = path.join(__dirname, videoName);
-    const videoSize = fs.statSync(videoPath).size;
-
     // Parse Range
-    // Example: "bytes=32324-"
-    const CHUNK_SIZE = 10 ** 6; // 1MB
+    const CHUNK_SIZE = (1 * 1024 * 1024) / 4; // 256KB
     const start = Number(range.replace(/\D/g, ""));
     const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
 
